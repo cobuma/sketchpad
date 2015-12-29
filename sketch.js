@@ -1,10 +1,13 @@
-var dim = 16;
+var dim = 50;
 
 $(document).ready(function() {
 	$("body").append("<div id=container></div>");
 	create_grid(dim);
 	$("td").mouseenter(function() {
 		$(this).addClass("entered");
+	});
+	$("td").mouseleave(function() {
+		$(this).fadeOut("slow");
 	});
 });
 
