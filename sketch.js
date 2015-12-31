@@ -3,12 +3,8 @@ var dim = 50;
 $(document).ready(function() {
 	$("body").append("<div id=container></div>");
 	create_grid(dim);
-	$("td").mouseenter(function() {
-		$(this).addClass("entered");
-	});
-	$("td").mouseleave(function() {
-		$(this).fadeOut("slow");
-	});
+	sketch();
+	reset();
 });
 
 function create_grid(num){
@@ -19,8 +15,23 @@ function create_grid(num){
 			$(".row"+i).append("<td></td>");
 		};
 	};
-}
+
+};
+
+function reset(){
+	$("#new").click(function() {
+		var dim = prompt("Dimension of new grid: (2-80)");
+		$("table").remove();
+		create_grid(dim);
+		sketch();
+	});
+};
 
 function sketch(){
-	mou
-}
+	$("td").mouseenter(function() {
+		$(this).addClass("entered");
+	});
+	$("td").mouseleave(function() {
+		$(this).fadeOut("slow");
+	});
+};
