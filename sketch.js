@@ -5,6 +5,7 @@ $(document).ready(function() {
 	create_grid(dim);
 	sketch();
 	reset();
+	rgb_reset();
 });
 
 function create_grid(num){
@@ -27,6 +28,15 @@ function reset(){
 	});
 };
 
+function rgb_reset(){
+	$("#rgb").click(function() {
+		var dim = prompt("Dimension of new grid: (2-80)");
+		$("table").remove();
+		create_grid(dim);
+		rgb();
+	});
+};
+
 function sketch(){
 	$("td").mouseenter(function() {
 		$(this).addClass("entered");
@@ -35,3 +45,14 @@ function sketch(){
 		$(this).fadeOut("slow");
 	});
 };
+
+function rgb(){
+	$("td").mouseenter(function() {
+		var hue = 'rgb('
+            + (Math.floor(Math.random() * 256)) + ','
+            + (Math.floor(Math.random() * 256)) + ','
+            + (Math.floor(Math.random() * 256)) + ')';
+		$(this).css("background-color", hue);
+	});
+};
+
